@@ -35,5 +35,12 @@ def bulb_types():
                          current_year=datetime.now().year)
 
 if __name__ == '__main__':
+
+    numbers = [123, 22, 33, 4123, 51]
+    sum_of_numbers = 0
+    for i in range(len(numbers)):
+        sum_of_numbers += numbers[i]
+    print(sum_of_numbers)
+    
     app.run(debug=True)
 
