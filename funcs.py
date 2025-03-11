@@ -1,3 +1,26 @@
+
+
+SQL_CREATE_TABLE = """
+CREATE TABLE employees (
+    id VARCHAR(255),
+    name VARCHAR(10),
+    age VARCHAR(10),
+    salary VARCHAR(10),
+    department VARCHAR(10)
+);"""
+
+SQL_SELECT_ALL = """SELECT * FROM employees;"""
+
+SQL_SELECT_EMPLOYEE_BY_ID = """SELECT * FROM employees WHERE id = 1234;"""
+
+SQL_SELECT_PRODUCT = """SELECT * FROM products WHERE product_id IN (SELECT product_id FROM orders);"""
+
+SQL_SELECT_EMPLOYEE_BY_DEPARTMENT = """SELECT name, (SELECT department_name FROM departments WHERE departments.id = employees.department_id) FROM employees;"""
+
+SQL_SELECT_DISTINCT_DEPARTMENTS = """SELECT DISTINCT department FROM departments;"""
+
+
+
 def doStuff(x):
  for i in range(0, len(x)):
   if x[i]%2==0:
