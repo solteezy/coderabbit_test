@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightbulb Types - Lightbulb Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .main-content {
+            flex: 1;
+        }
+        .type-card {
+            transition: transform 0.2s;
+        }
+        .type-card:hover {
+            transform: translateY(-5px);
+        }
+        .efficiency-high {
+            color: #28a745;
+        }
+        .efficiency-medium {
+            color: #ffc107;
+        }
+        .efficiency-low {
+            color: #dc3545;
+        }
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Lightbulb Guide</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/types">Types</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5 main-content">
+        <h1 class="text-center mb-4">Types of Lightbulbs</h1>
+        <div class="row">
+            {% for bulb in lightbulbs %}
+            <div class="col-md-4 mb-4">
+                <div class="card type-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ bulb.type }}</h5>
+                        <div class="mb-3">
+                            <span class="badge {% if bulb.efficiency == 'High' %}bg-success{% elif bulb.efficiency == 'Medium' %}bg-warning{% else %}bg-danger{% endif %}">
+                                Efficiency: {{ bulb.efficiency }}
+                            </span>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <strong>Lifespan:</strong> {{ bulb.lifespan }}
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Cost:</strong> {{ bulb.cost }}
+                            </li>
+                            {% if bulb.description %}
+                            <li class="list-group-item">
+                                <strong>Description:</strong> {{ bulb.description }}
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; {{ current_year }} Lightbulb Guide. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

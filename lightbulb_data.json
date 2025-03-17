@@ -1,0 +1,23 @@
+{
+    "lightbulbs": [
+        {
+            "type": "LED",
+            "efficiency": "High",
+            "lifespan": "50,000 hours",
+            "cost": "Higher initial, lower long-term"
+        },
+        {
+            "type": "Incandescent",
+            "efficiency": "Low",
+            "lifespan": "1,200 hours",
+            "cost": "Low initial, higher long-term"
+        },
+        {
+            "type": "CFL",
+            "efficiency": "Medium",
+            "lifespan": "8,000 hours",
+            "cost": "Medium initial, medium long-term",
+            "description": "Compact Fluorescent Lamp - An energy-efficient alternative to incandescent bulbs"
+        }
+    ]
+} 
